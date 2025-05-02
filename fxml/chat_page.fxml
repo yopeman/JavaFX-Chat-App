@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7219AB;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="400.0" prefWidth="136.0" style="-fx-background-color: #632EC7;" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollBar orientation="VERTICAL" prefHeight="400.0" prefWidth="136.0" />
+         </children></VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #7219AB;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="3.0" layoutY="339.0" prefHeight="61.0" prefWidth="427.0" style="-fx-background-color: #BE3B99; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="339.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <ImageView fitHeight="51.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/file_img.png" />
+                     </image>
+                  </ImageView>
+                  <TextField prefHeight="51.0" prefWidth="442.0" promptText="Type message here..." style="-fx-background-radius: 10px;">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <ImageView fitHeight="49.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/send_img.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ScrollBar layoutX="9.0" layoutY="9.0" orientation="VERTICAL" prefHeight="321.0" prefWidth="445.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="9.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="682.0" style="-fx-background-color: #9599FB;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="80.0" layoutY="10.0" text="User Authentication" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="52.0" layoutY="86.0" prefHeight="270.0" prefWidth="227.0" style="-fx-background-color: #5276DB; -fx-border-radius: 500px; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="361.0" AnchorPane.topAnchor="86.0">
+               <children>
+                  <Button layoutX="115.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Register" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <TextField cache="true" layoutX="28.0" layoutY="45.0" promptText="Enter username here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <Label layoutX="29.0" layoutY="14.0" text="Username" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField accessibleRole="TEXT" layoutX="28.0" layoutY="114.0" promptText="Enter email here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <Label layoutX="29.0" layoutY="83.0" text="Email" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="150.0" text="Password" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField layoutX="29.0" layoutY="177.0" promptText="Enter password here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <Button layoutX="13.0" layoutY="216.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="347.0" layoutY="109.0" prefHeight="209.0" prefWidth="227.0" style="-fx-background-color: #5276DB; -fx-border-radius: 500px; -fx-background-radius: 25px;">
+               <children>
+                  <Button layoutX="115.0" layoutY="159.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <TextField accessibleRole="TEXT" layoutX="28.0" layoutY="43.0" promptText="Enter email here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <Label layoutX="29.0" layoutY="12.0" text="Email" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="85.0" text="Password" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField layoutX="29.0" layoutY="112.0" promptText="Enter password here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <Button layoutX="13.0" layoutY="158.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
