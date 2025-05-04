@@ -40,29 +40,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Authentication_Controller">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Profile_Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="682.0" style="-fx-background-color: #9599FB;" VBox.vgrow="ALWAYS">
          <children>
-            <Label layoutX="80.0" layoutY="10.0" text="User Authentication" textFill="WHITE">
+            <Label layoutX="164.0" layoutY="10.0" text="User Profile" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
             </Label>
             <AnchorPane layoutX="52.0" layoutY="86.0" prefHeight="270.0" prefWidth="227.0" style="-fx-background-color: #5276DB; -fx-border-radius: 500px; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="361.0" AnchorPane.topAnchor="86.0">
                <children>
-                  <Button layoutX="115.0" layoutY="217.0" mnemonicParsing="false" onAction="#btn_register" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Register" textFill="WHITE">
+                  <Button layoutX="115.0" layoutY="217.0" mnemonicParsing="false" onAction="#btn_update" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Update" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="tf_register_uname" cache="true" layoutX="28.0" layoutY="45.0" promptText="Enter username here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <TextField fx:id="tf_update_uname" cache="true" layoutX="28.0" layoutY="45.0" promptText="Enter username here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
                   <Label layoutX="29.0" layoutY="14.0" text="Username" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_register_email" accessibleRole="TEXT" layoutX="28.0" layoutY="114.0" promptText="Enter email here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <TextField fx:id="tf_update_email" accessibleRole="TEXT" layoutX="28.0" layoutY="114.0" promptText="Enter email here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
                   <Label layoutX="29.0" layoutY="83.0" text="Email" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -73,34 +73,22 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="tf_register_pswd" layoutX="29.0" layoutY="177.0" promptText="Enter password here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
-                  <Button layoutX="13.0" layoutY="216.0" mnemonicParsing="false" onAction="#btn_cancel_register" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
+                  <PasswordField fx:id="tf_update_pswd" layoutX="29.0" layoutY="177.0" promptText="Enter password here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
+                  <Button layoutX="13.0" layoutY="216.0" mnemonicParsing="false" onAction="#btn_cancel_update" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="347.0" layoutY="109.0" prefHeight="209.0" prefWidth="227.0" style="-fx-background-color: #5276DB; -fx-border-radius: 500px; -fx-background-radius: 25px;">
+            <AnchorPane layoutX="346.0" layoutY="144.0" prefHeight="107.0" prefWidth="227.0" style="-fx-background-color: #5276DB; -fx-border-radius: 500px; -fx-background-radius: 25px;">
                <children>
-                  <Button layoutX="115.0" layoutY="159.0" mnemonicParsing="false" onAction="#btn_login" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Login" textFill="WHITE">
+                  <Button layoutX="115.0" layoutY="42.0" mnemonicParsing="false" onAction="#btn_logout" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Logout" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="tf_login_email" accessibleRole="TEXT" layoutX="28.0" layoutY="43.0" promptText="Enter email here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
-                  <Label layoutX="29.0" layoutY="12.0" text="Email" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="31.0" layoutY="85.0" text="Password" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="tf_login_pswd" layoutX="29.0" layoutY="112.0" promptText="Enter password here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
-                  <Button layoutX="13.0" layoutY="158.0" mnemonicParsing="false" onAction="#btn_cancel_login" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
+                  <Button layoutX="13.0" layoutY="41.0" mnemonicParsing="false" onAction="#btn_update_go_back" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Go Back" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
