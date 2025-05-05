@@ -85,12 +85,12 @@ public class User implements Serializable {
             File user_file = new File("login_user_info.dat");
             if (user_file.exists()) {
                 ObjectInputStream obj_inp = new ObjectInputStream(new FileInputStream(user_file));
-                User user = (User) obj_inp.readObject();
+                ChatUser user = (ChatUser) obj_inp.readObject();
                 
                 if (user != null) {
                     User.uname = user.uname;
                     User.email = user.email;
-                    User.pswd = user.pswd;
+                    User.pswd = user.user_id;
                     obj_inp.close();
                     return true;
                 }
@@ -107,7 +107,7 @@ public class User implements Serializable {
     private static void save_user_info(){
         try {
 			ObjectOutputStream obj_out = new ObjectOutputStream(new FileOutputStream("login_user_info.dat"));
-            obj_out.writeObject(new User());
+            obj_out.writeObject(new ChatUser(User.pswd, User.uname, User.email, "",""));
             obj_out.flush();
             obj_out.close();
             obj_out = null;

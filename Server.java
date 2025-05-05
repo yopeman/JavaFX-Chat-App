@@ -9,6 +9,9 @@ import java.net.Socket;
 import java.sql.PreparedStatement;
 import java.util.HashMap;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Server extends Thread {
     Socket client;
@@ -97,11 +100,50 @@ public class Server extends Thread {
                                 temp_out.flush();
                             }
 
-                            // data_out.writeUTF(user_data);
-                            // data_out.flush();
+                            sql = "select u.email, u.username, cm.message, cm.sendAt from user u, chat_message cm where u.user_id = cm.sender_id";
+                            pStatement = db.get_pStatement(sql);
+                            ResultSet rs2 = db.db_query(pStatement);
+
+                            String chat_data = "";
+                            String split_text_1 = "!___This_Is_The_First_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                            String split_text_2 = "!___This_Is_The_Second_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                            while(rs2.next()){
+                                email = rs2.getString("email");
+                                String sender_uname = rs2.getString("username");
+                                String message = rs2.getString("message");
+                                String sendAt = rs2.getString("sendAt");
+
+                                chat_data += email + split_text_1 + sender_uname + split_text_1 + message + split_text_1 + sendAt + split_text_2;
+                                System.out.println(chat_data);
+                            }
+                            data_out.writeUTF("load-chat");
+                            data_out.writeUTF(chat_data);
+                            data_out.flush();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
+                    }
+                }
+            
+                else if(action.equals("new-chat-msg")){
+                    String chat_msg = data_inp.readUTF();
+                    String sql = "insert into chat_message (sender_id, message) values (?, ?)";
+                    PreparedStatement pStatement = db.get_pStatement(sql);
+                    pStatement.setString(1, users.get(client).user_id);
+                    pStatement.setString(2, chat_msg);
+                    
+                    if(!db.db_exec(pStatement)){
+                        System.out.println("Message are not inserted!");
+                    }
+
+                    String split_text_1 = "!___This_Is_The_First_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                    String chat_data = users.get(client).email + split_text_1 + users.get(client).uname + split_text_1 + chat_msg + split_text_1 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+                    for(Socket s : users.keySet()){
+                        DataOutputStream temp_out = new DataOutputStream(s.getOutputStream());
+                        temp_out.writeUTF("add-new-chat-msg");
+                        temp_out.writeUTF(chat_data);
+                        temp_out.flush();
                     }
                 }
             } 
@@ -133,7 +175,11 @@ public class Server extends Thread {
 
             catch (IOException e) {
                 e.printStackTrace();
-            }
+            } 
+            
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
 }

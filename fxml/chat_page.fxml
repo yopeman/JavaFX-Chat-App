@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7219AB;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat_Controller">
    <center>
@@ -19,36 +21,45 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <ImageView fitHeight="51.0" fitWidth="49.0" onDragDetected="#icon_btn_file" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="49.0" onMouseClicked="#icon_btn_file" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/file_img.png" />
                      </image>
                   </ImageView>
-                  <TextField onAction="#tf_chat_input" prefHeight="51.0" prefWidth="442.0" promptText="Type message here..." style="-fx-background-radius: 10px;">
+                  <TextField fx:id="tf_chat_input" onKeyPressed="#tf_chat_msg_input_entered" prefHeight="51.0" prefWidth="442.0" promptText="Type message here..." style="-fx-background-radius: 10px;">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <ImageView fitHeight="49.0" fitWidth="55.0" onDragDetected="#icon_btn_send" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="49.0" fitWidth="55.0" onMouseClicked="#icon_btn_send" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/send_img.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <ImageView fitHeight="47.0" fitWidth="48.0" layoutX="406.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="48.0" layoutX="406.0" layoutY="9.0" onMouseClicked="#icon_btn_profile" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/p_img.png" />
+                  <Image url="@../image/white_profile_img.png" />
                </image>
             </ImageView>
-            <VBox fx:id="vb_chat_msg_list" layoutX="98.0" layoutY="93.0" prefHeight="340.0" prefWidth="405.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="0.0" />
+            <ScrollPane layoutY="64.0" opacity="0.0" prefHeight="274.0" prefWidth="462.0" style="-fx-background-color: #7219AB;">
+               <content>
+                  <VBox fx:id="vb_chat_msg_list" prefHeight="272.0" prefWidth="429.0" style="-fx-background-color: #7219AB; -fx-padding: 25px; -fx-spacing: 10px;" />
+               </content>
+            </ScrollPane>
+            <Label layoutX="81.0" layoutY="4.0" text="Chat Message" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
    <left>
-      <ScrollPane prefHeight="303.0" prefWidth="138.0" style="-fx-background-color: #5E2BBD;" BorderPane.alignment="CENTER">
+      <ScrollPane opacity="0.0" prefHeight="303.0" prefWidth="138.0" style="-fx-background-color: #5E2BBD;" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="vb_chat_user_list" prefHeight="398.0" prefWidth="136.0" style="-fx-background-color: #5E2BBD;" />
+            <VBox fx:id="vb_chat_user_list" prefHeight="398.0" prefWidth="136.0" style="-fx-background-color: #5E2BBD; -fx-padding: 10px; -fx-spacing: 10px;" />
          </content>
       </ScrollPane>
    </left>

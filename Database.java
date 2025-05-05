@@ -33,10 +33,10 @@ public class Database {
 
             sql = "create table if not exists chat_message ("+
                     "chat_msg_id int auto_increment primary key,"+
-                    "user_id int not null,"+
+                    "sender_id int not null,"+
                     "message varchar(255) not null,"+
-                    "createdAt timestamp default current_timestamp,"+
-                    "foreign key (user_id) references user (user_id) on delete cascade"+
+                    "sendAt timestamp default current_timestamp,"+
+                    "foreign key (sender_id) references user (user_id) on delete cascade"+
                 ")";
             ps = get_pStatement(sql);
             

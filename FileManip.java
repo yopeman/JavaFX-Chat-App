@@ -1,6 +1,7 @@
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class FileManip extends Application{
         stg.setTitle("Real Time Chat Application");
         stg.setScene(new Scene(root));
         stg.setResizable(false);
+        stg.setOnCloseRequest(event -> Platform.exit());
         stg.show();
     }
 
