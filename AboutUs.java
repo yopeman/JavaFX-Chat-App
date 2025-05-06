@@ -10,8 +10,11 @@ import javafx.stage.Stage;
 public class AboutUs extends Application{
     @Override
     public void start(Stage stg) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/about_us.fxml"));
         Parent root = loader.load();
+
+        AboutUs_Controller controller = loader.getController();
+        controller.setStage(stg);
 
         stg.setTitle("Real Time Chat Application");
         stg.setScene(new Scene(root));
