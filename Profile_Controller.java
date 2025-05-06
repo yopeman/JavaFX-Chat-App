@@ -6,16 +6,31 @@ import javafx.scene.control.TextField;
 public class Profile_Controller {
 
     @FXML
-    private TextField tf_update_email;
+    private TextField tf_email;
 
     @FXML
-    private PasswordField tf_update_pswd;
+    private PasswordField tf_pswd;
 
     @FXML
-    private TextField tf_update_uname;
+    private TextField tf_uname;
 
     @FXML
-    void btn_cancel_update(ActionEvent event) {
+    void btn_about(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_cancel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_delete(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_go_back(ActionEvent event) {
 
     }
 
@@ -28,10 +43,4 @@ public class Profile_Controller {
     void btn_update(ActionEvent event) {
 
     }
-
-    @FXML
-    void btn_update_go_back(ActionEvent event) {
-
-    }
-
 }

@@ -43,6 +43,20 @@ public class Database {
             if(!db_exec(ps) &&  !error_msg.isEmpty()){
                 System.err.println("\n\n\n Error in creating chat_message database table! \n\n\n");
             }
+            
+            sql = "create table if not exists file ("+
+                    "file_id int auto_increment primary key,"+
+                    "sender_id int not null,"+
+                    "file_name varchar(255) not null,"+
+                    "file_data longblob not null,"+
+                    "uploadAt timestamp default current_timestamp,"+
+                    "foreign key (sender_id) references user (user_id) on delete cascade"+
+                ")";
+            ps = get_pStatement(sql);
+            
+            if(!db_exec(ps) &&  !error_msg.isEmpty()){
+                System.err.println("\n\n\n Error in creating file database table! \n\n\n");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             error_msg = e.getMessage();

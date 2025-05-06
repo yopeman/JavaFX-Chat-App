@@ -1,6 +1,7 @@
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -23,6 +24,11 @@ public class Chat_Controller {
     private Stage stg;
     DataOutputStream data_out;
     DataInputStream data_inp;
+
+    @FXML
+    private ScrollPane sp_for_user_list;
+    @FXML
+    private ScrollPane sp_for_msg_list;
 
     @FXML
     private TextField tf_chat_input;
@@ -128,6 +134,7 @@ public class Chat_Controller {
                     JOptionPane.showMessageDialog(null, user.user_info(), "User Information", JOptionPane.INFORMATION_MESSAGE);
                 });
                 vb_chat_user_list.getChildren().add(btn);
+                sp_for_user_list.setVvalue(1.0);
             }
         });
     }
@@ -138,7 +145,12 @@ public class Chat_Controller {
             vb_chat_msg_list.setSpacing(15.0);
             Text txt = new Text(sender_uname + ":" + "\n" + chat_msg + "\n" + "[On: " + send_at + " ]");
             TextFlow lbl = new TextFlow(txt);
-            // lbl.setPrefWidth(0);
+            lbl.setOnMouseClicked(event -> {
+                String chat_info = "Sender Username: " + sender_uname + "\n" +
+                                    "Sender Email: " + sender_email + "\n" +
+                                    "Send At: " + send_at;
+                JOptionPane.showMessageDialog(null, chat_info, "Chat Message Information", JOptionPane.INFORMATION_MESSAGE);
+            });
 
             if(sender_email.equals(User.get_email())){
                 lbl.setStyle("-fx-background-color:  yellow; -fx-background-radius: 10px; -fx-padding: 10px; -fx-text-alignment: right");
@@ -147,6 +159,7 @@ public class Chat_Controller {
             }
             
             vb_chat_msg_list.getChildren().add(lbl);
+            sp_for_msg_list.setVvalue(1.0);
         });
     }
 

@@ -9,29 +9,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #243A4F;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #243A4F;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FileManip_Controller">
    <children>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="119.0" style="-fx-background-color: #08AFA8; -fx-background-radius: 50px;" text="Upload" textFill="#f5f2f2">
+      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#btn_upload" prefHeight="19.0" prefWidth="119.0" style="-fx-background-color: #08AFA8; -fx-background-radius: 50px;" text="Upload" textFill="#f5f2f2">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="143.0" layoutY="348.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="119.0" style="-fx-background-color: #2564E5; -fx-background-radius: 50px;" text="Download" textFill="#f5f2f2">
+      <Button layoutX="143.0" layoutY="348.0" mnemonicParsing="false" onAction="#btn_download" prefHeight="19.0" prefWidth="119.0" style="-fx-background-color: #2564E5; -fx-background-radius: 50px;" text="Download" textFill="#f5f2f2">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="9.0" layoutY="55.0" opacity="0.0" prefHeight="285.0" prefWidth="582.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="55.0">
+      <ScrollPane fx:id="sp_for_file_list" layoutX="9.0" layoutY="55.0" prefHeight="285.0" prefWidth="582.0" style="-fx-background-color: #243A4F;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="55.0">
          <content>
-            <VBox fx:id="vb_file_list" prefHeight="264.0" prefWidth="560.0" />
+            <VBox fx:id="vb_file_list" prefHeight="283.0" prefWidth="580.0" style="-fx-background-color: #243A4F #243A4F;" />
          </content>
       </ScrollPane>
-      <Label layoutX="134.0" layoutY="1.0" text="File Manager" textFill="WHITE">
+      <Label layoutX="181.0" layoutY="11.0" text="File Manager" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="74.0" layoutX="9.0" layoutY="9.0" onMouseClicked="#go_to_chat_page" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="74.0" layoutX="14.0" layoutY="16.0" onMouseClicked="#go_to_chat_page" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/back_img.png" />
          </image>

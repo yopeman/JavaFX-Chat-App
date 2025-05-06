@@ -13,6 +13,10 @@ public class FileManip extends Application{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/file_io.fxml"));
         Parent root = loader.load();
 
+        FileManip_Controller controller = loader.getController();
+        controller.setStage(stg);
+        controller.start_file_manip();
+
         stg.setTitle("Real Time Chat Application");
         stg.setScene(new Scene(root));
         stg.setResizable(false);

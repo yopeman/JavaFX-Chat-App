@@ -114,7 +114,6 @@ public class Server extends Thread {
                                 String sendAt = rs2.getString("sendAt");
 
                                 chat_data += email + split_text_1 + sender_uname + split_text_1 + message + split_text_1 + sendAt + split_text_2;
-                                System.out.println(chat_data);
                             }
                             data_out.writeUTF("load-chat");
                             data_out.writeUTF(chat_data);
@@ -144,6 +143,98 @@ public class Server extends Thread {
                         temp_out.writeUTF("add-new-chat-msg");
                         temp_out.writeUTF(chat_data);
                         temp_out.flush();
+                    }
+                }
+            
+                else if(action.equals("file-tranfer")){
+                    try{
+                        String email = data_inp.readUTF();
+                        String sql = "select * from user where email=?";
+                        PreparedStatement pStatement = db.get_pStatement(sql);
+                        pStatement.setString(1, email);
+                        ResultSet rs = db.db_query(pStatement);
+
+                        if (rs.next()) {
+                            String user_id = rs.getString("user_id");
+                            String uname = rs.getString("username");
+                            String createdAt = rs.getString("createdAt");
+                            String updatedAt = rs.getString("updatedAt");
+
+                            ChatUser chat_user = new ChatUser(user_id, uname, email, createdAt, updatedAt);
+                            users.put(client, chat_user);
+
+                            String user_data = "";
+                            for(ChatUser user : users.values()){
+                                user_data += user.toString();
+                            }
+
+                            for(Socket s : users.keySet()){
+                                DataOutputStream temp_out = new DataOutputStream(s.getOutputStream());
+                                temp_out.writeUTF("update-user");
+                                temp_out.writeUTF(user_data);
+                                temp_out.flush();
+                            }
+
+                            sql = "select u.email, u.username, f.file_id, f.file_name, f.uploadAt from user u, file f where u.user_id = f.sender_id";
+                            pStatement = db.get_pStatement(sql);
+                            ResultSet rs2 = db.db_query(pStatement);
+
+                            String file_list = "";
+                            String split_text_1 = "!___This_Is_The_First_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                            String split_text_2 = "!___This_Is_The_Second_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                            while(rs2.next()){
+                                email = rs2.getString("email");
+                                String sender_uname = rs2.getString("username");
+                                String file_id = rs2.getString("file_id");
+                                String file_name = rs2.getString("file_name");
+                                String upload_at = rs2.getString("uploadAt");
+
+                                file_list += email + split_text_1 + sender_uname + split_text_1 + file_id + split_text_1 + file_name + split_text_1 + upload_at + split_text_2;
+                                System.out.println(file_list);
+                            }
+                            data_out.writeUTF("update-file-lists");
+                            data_out.writeUTF(file_list);
+                            data_out.flush();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                else if(action.equals("upload-file")){
+                    if (FileServer.upload_file(client, users.get(client))) {
+                        String sql = "select u.email, u.username, f.file_id, f.file_name, f.uploadAt from user u, file f where u.user_id = f.sender_id";
+                        PreparedStatement pStatement = db.get_pStatement(sql);
+                        ResultSet rs2 = db.db_query(pStatement);
+
+                        String file_list = "";
+                        String split_text_1 = "!___This_Is_The_First_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                        String split_text_2 = "!___This_Is_The_Second_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
+                        while(rs2.next()){
+                            String email = rs2.getString("email");
+                            String sender_uname = rs2.getString("username");
+                            String file_id = rs2.getString("file_id");
+                            String file_name = rs2.getString("file_name");
+                            String upload_at = rs2.getString("uploadAt");
+
+                            file_list += email + split_text_1 + sender_uname + split_text_1 + file_id + split_text_1 + file_name + split_text_1 + upload_at + split_text_2;
+                        }
+
+                        for(Socket s : users.keySet()){
+                            DataOutputStream temp_out = new DataOutputStream(s.getOutputStream());
+                            temp_out.writeUTF("update-file-lists");
+                            temp_out.writeUTF(file_list);
+                            temp_out.flush();
+                        }
+
+                        System.out.println("File uploaded!");
+                    }
+                }
+
+                else if(action.equals("download-file")){
+                    String file_id = data_inp.readUTF();
+                    if (FileServer.download_file(client, file_id)) {
+                        System.out.println("File downloaded!");
                     }
                 }
             } 

@@ -43,9 +43,9 @@
                   <Image url="@../image/white_profile_img.png" />
                </image>
             </ImageView>
-            <ScrollPane layoutY="64.0" opacity="0.0" prefHeight="274.0" prefWidth="462.0" style="-fx-background-color: #7219AB;">
+            <ScrollPane fx:id="sp_for_msg_list" layoutY="64.0" prefHeight="274.0" prefWidth="462.0" style="-fx-background-color: #7219AB;">
                <content>
-                  <VBox fx:id="vb_chat_msg_list" prefHeight="272.0" prefWidth="429.0" style="-fx-background-color: #7219AB; -fx-padding: 25px; -fx-spacing: 10px;" />
+                  <VBox fx:id="vb_chat_msg_list" prefHeight="272.0" prefWidth="453.0" style="-fx-background-color: #7219AB; -fx-padding: 25px; -fx-spacing: 10px;" />
                </content>
             </ScrollPane>
             <Label layoutX="81.0" layoutY="4.0" text="Chat Message" textFill="WHITE">
@@ -57,7 +57,7 @@
       </AnchorPane>
    </center>
    <left>
-      <ScrollPane opacity="0.0" prefHeight="303.0" prefWidth="138.0" style="-fx-background-color: #5E2BBD;" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="sp_for_user_list" prefHeight="303.0" prefWidth="138.0" style="-fx-background-color: #5E2BBD;" BorderPane.alignment="CENTER">
          <content>
             <VBox fx:id="vb_chat_user_list" prefHeight="398.0" prefWidth="136.0" style="-fx-background-color: #5E2BBD; -fx-padding: 10px; -fx-spacing: 10px;" />
          </content>
