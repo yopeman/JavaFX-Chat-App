@@ -78,6 +78,10 @@ public class Authentication_Controller {
                 data_out.flush();
 
                 if(data_inp.readBoolean()){
+                    User.set_uname(uname);
+                    User.set_email(email);
+                    User.set_pswd(pswd);
+
                     Platform.runLater(()->{
                         try{
                             stg.close();
@@ -123,6 +127,9 @@ public class Authentication_Controller {
                 data_out.flush();
 
                 if(data_inp.readBoolean()){
+                    User.set_email(email);
+                    User.set_pswd(pswd);
+
                     Platform.runLater(()->{
                         try{
                             stg.close();
