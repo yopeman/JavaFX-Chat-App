@@ -123,6 +123,7 @@ public class User implements Serializable {
                 return true;
             }
         }
+        JOptionPane.showMessageDialog(null, "You are successfully Logouted!", "Success", JOptionPane.INFORMATION_MESSAGE);
         return true;
     }
     
