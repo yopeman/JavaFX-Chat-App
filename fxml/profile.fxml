@@ -51,7 +51,7 @@
             </Label>
             <AnchorPane layoutX="52.0" layoutY="86.0" prefHeight="270.0" prefWidth="227.0" style="-fx-background-color: #5276DB; -fx-border-radius: 500px; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="361.0" AnchorPane.topAnchor="86.0">
                <children>
-                  <Button layoutX="115.0" layoutY="217.0" mnemonicParsing="false" onAction="#btn_update" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Update" textFill="WHITE">
+                  <Button layoutX="115.0" layoutY="220.0" mnemonicParsing="false" onAction="#btn_update" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Update" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -74,7 +74,7 @@
                      </font>
                   </Label>
                   <PasswordField fx:id="tf_pswd" layoutX="29.0" layoutY="177.0" promptText="Enter password here..." style="-fx-background-color: #656B79; -fx-background-radius: 7px;" />
-                  <Button layoutX="13.0" layoutY="216.0" mnemonicParsing="false" onAction="#btn_cancel" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
+                  <Button layoutX="13.0" layoutY="219.0" mnemonicParsing="false" onAction="#btn_cancel" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: #F96F62; -fx-background-radius: 25px;" text="Cancel" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

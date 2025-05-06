@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-
-import javax.swing.JOptionPane;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,14 +56,13 @@ public class Authentication_Controller {
                 String email = tf_register_email.getText();
                 String pswd = tf_register_pswd.getText();
 
-                if(uname.isEmpty() || email.isEmpty() || pswd.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Please fill all fields");
+                if(!Validate.is_valid_uname(uname) || !Validate.is_valid_email(email) || !Validate.is_valid_pswd(pswd)){
                     return;
                 }
+                pswd = Validate.hash_pswd(pswd);
 
                 Socket server = Network.get_server();
                 if(server == null){
-                    JOptionPane.showMessageDialog(null, "Server not found");
                     return;
                 }
                 
@@ -106,14 +102,13 @@ public class Authentication_Controller {
                 String email = tf_login_email.getText();
                 String pswd = tf_login_pswd.getText();
 
-                if(email.isEmpty() || pswd.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Please fill all fields");
+                if(!Validate.is_valid_email(email) || !Validate.is_valid_pswd(pswd)){
                     return;
                 }
+                pswd = Validate.hash_pswd(pswd);
 
                 Socket server = Network.get_server();
                 if(server == null){
-                    JOptionPane.showMessageDialog(null, "Server not found");
                     return;
                 }
 

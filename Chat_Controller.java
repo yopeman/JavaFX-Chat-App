@@ -49,7 +49,6 @@ public class Chat_Controller {
         new Thread(()->{
             Socket server = Network.get_server();
             if(server == null){
-                JOptionPane.showMessageDialog(null, "Server not connected!");
                 return;
             }
 
@@ -90,7 +89,7 @@ public class Chat_Controller {
 
                             for (String chat : chats) {
                                 String[] chat_data = chat.split(split_text_1);
-                                System.out.println("\n\n\n" + chat_data.length + "\n\n\n");
+                                // System.out.println("\n\n\n" + chat_data.length + "\n\n\n");
 
                                 String sender_email = chat_data[0];
                                 String sender_uname = chat_data[1];

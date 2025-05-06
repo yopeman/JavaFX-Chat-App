@@ -4,9 +4,11 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.PreparedStatement;
+import java.util.Date;
 import java.util.HashMap;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,10 +28,14 @@ public class Server extends Thread {
             try {
                 @SuppressWarnings("resource")
                 ServerSocket server = new ServerSocket(64318);
-                System.out.println("\n\tServer are started!\n");
+
+                InetAddress ip = InetAddress.getLocalHost();
+                String ip_address = ip.getHostAddress();
+
+                System.out.println("\n[ Server are started on " + ip_address + " at " + new Date() + " ]\n");
                 for(;;){
                     Socket client = server.accept();
-                    System.out.println("Client start!");
+                    System.out.println("[ Client connection started at " + new Date() + " ]");
                     new Server(client).start();
                 }
             } catch (Exception e) {
@@ -40,7 +46,7 @@ public class Server extends Thread {
 
     public void run(){
         for(;;){
-            System.out.println(0);
+            // System.out.println(0);
             try {
                 InputStream input = client.getInputStream();
                 OutputStream output = client.getOutputStream();
@@ -49,7 +55,7 @@ public class Server extends Thread {
                 DataOutputStream data_out = new DataOutputStream(output);
 
                 String action = data_inp.readUTF();
-                System.out.println("\n\n\n \t Action => " + action + " \n\n\n");
+                // System.out.println("\n\n\n \t Action => " + action + " \n\n\n");
                 Database db = new Database();
 
                 if(action.equals("register")){
@@ -59,7 +65,7 @@ public class Server extends Thread {
                     boolean result = User.signup(uname, email, pswd);
                     data_out.writeBoolean(result);
                     data_out.flush();
-                    System.out.println("Register: " + result);
+                    // System.out.println("Register: " + result);
                 }
 
                 else if(action.equals("login")){
@@ -68,7 +74,7 @@ public class Server extends Thread {
                     boolean result = User.login(email, pswd);
                     data_out.writeBoolean(result);
                     data_out.flush();
-                    System.out.println("Login: " + result);
+                    // System.out.println("Login: " + result);
                 }
 
                 else if(action.equals("start-chat")){
@@ -132,7 +138,7 @@ public class Server extends Thread {
                     pStatement.setString(2, chat_msg);
                     
                     if(!db.db_exec(pStatement)){
-                        System.out.println("Message are not inserted!");
+                        // System.out.println("Message are not inserted!");
                     }
 
                     String split_text_1 = "!___This_Is_The_First_Split_Text_For_This_Chat_App_Project_With_JavaFX_AND_JDBC___!";
@@ -190,7 +196,7 @@ public class Server extends Thread {
                                 String upload_at = rs2.getString("uploadAt");
 
                                 file_list += email + split_text_1 + sender_uname + split_text_1 + file_id + split_text_1 + file_name + split_text_1 + upload_at + split_text_2;
-                                System.out.println(file_list);
+                                // System.out.println(file_list);
                             }
                             data_out.writeUTF("update-file-lists");
                             data_out.writeUTF(file_list);
@@ -227,20 +233,76 @@ public class Server extends Thread {
                             temp_out.flush();
                         }
 
-                        System.out.println("File uploaded!");
+                        // System.out.println("File uploaded!");
                     }
                 }
 
                 else if(action.equals("download-file")){
                     String file_id = data_inp.readUTF();
                     if (FileServer.download_file(client, file_id)) {
-                        System.out.println("File downloaded!");
+                        // System.out.println("File downloaded!");
                     }
+                }
+            
+                else if(action.equals("delete-account")){
+                    String email = data_inp.readUTF();
+                    String sql = "delete from user where email=?";
+                    PreparedStatement pStatement = db.get_pStatement(sql);
+                    pStatement.setString(1, email);
+
+                    data_out.writeBoolean(db.db_exec(pStatement));
+                    data_out.flush();
+                }
+
+                else if(action.equals("update-uname")){
+                    String email = data_inp.readUTF();
+                    String uname = data_inp.readUTF();
+                    
+                    String sql = "update user set uname=? where email=?";
+                    PreparedStatement pStatement = db.get_pStatement(sql);
+                    pStatement.setString(1, uname);
+                    pStatement.setString(2, email);
+
+                    data_out.writeBoolean(db.db_exec(pStatement));
+                    data_out.flush();
+                }
+                
+                else if(action.equals("update-email")){
+                    String old_email = data_inp.readUTF();
+                    String new_email = data_inp.readUTF();
+
+                    String sql = "select user_id where email=?";
+                    PreparedStatement pStatement = db.get_pStatement(sql);
+                    pStatement.setString(1, old_email);
+                    ResultSet rs = db.db_query(pStatement);
+
+                    if (rs.next()) {
+                        sql = "update user set email=? where user_id=?";
+                        pStatement = db.get_pStatement(sql);
+                        pStatement.setString(1, new_email);
+                        pStatement.setString(2, rs.getString("user_id"));
+
+                        data_out.writeBoolean(db.db_exec(pStatement));
+                        data_out.flush();
+                    }
+                }
+                
+                else if(action.equals("update-pswd")){
+                    String email = data_inp.readUTF();
+                    String pswd = data_inp.readUTF();
+                    
+                    String sql = "update user set pswd=? where email=?";
+                    PreparedStatement pStatement = db.get_pStatement(sql);
+                    pStatement.setString(1, pswd);
+                    pStatement.setString(2, email);
+
+                    data_out.writeBoolean(db.db_exec(pStatement));
+                    data_out.flush();
                 }
             } 
             
             catch (EOFException e) {
-                System.out.println("Client end!");
+                System.out.println("[ Client connection terminated at " + new Date() + " ]");
 
                 try {
                     users.remove(client);

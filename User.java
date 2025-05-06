@@ -73,7 +73,6 @@ public class User implements Serializable {
         return false;
     }
     
-    @SuppressWarnings("static-access")
 	public static boolean isLogin(){
         if(uname != null){
             if (!uname.isEmpty()) {
@@ -116,7 +115,7 @@ public class User implements Serializable {
 		}
     }
 
-    public boolean logout(){
+    public static boolean logout(){
         uname = email = pswd = null;
         File user_file = new File("login_user_info.dat");
         if (user_file.exists()) {
@@ -127,11 +126,17 @@ public class User implements Serializable {
         return true;
     }
     
-    public static void set_uname(){}
+    public static void set_uname(String uname){
+        User.uname = uname;
+    }
     
-    public static void set_email(){}
+    public static void set_email(String email){
+        User.email = email;
+    }
     
-    public static void set_pswd(){}
+    public static void set_pswd(String pswd){
+        User.pswd = pswd;
+    }
     
     public static String get_uname(){
         return uname;

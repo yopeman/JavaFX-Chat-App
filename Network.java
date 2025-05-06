@@ -11,8 +11,14 @@ public class Network {
                 server_hostname = JOptionPane.showInputDialog("Enter server IP address or hostname: ", "localhost");
             }
             Socket server = new Socket(server_hostname, 64318);
+            
+            if(server == null){
+                JOptionPane.showMessageDialog(null, "Server not found");
+            }
+
             return server;
 		} catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Server not found");
 			e.printStackTrace();
 		}
         return null;

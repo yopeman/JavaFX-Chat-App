@@ -40,7 +40,6 @@ public class FileManip_Controller {
         new Thread(()->{
             Socket server = Network.get_server();
             if(server == null){
-                JOptionPane.showMessageDialog(null, "Server not connected!");
                 return;
             }
 
