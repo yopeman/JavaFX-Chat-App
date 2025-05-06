@@ -32,7 +32,7 @@ public class Server extends Thread {
                 InetAddress ip = InetAddress.getLocalHost();
                 String ip_address = ip.getHostAddress();
 
-                System.out.println("\n[ Server are started on " + ip_address + " at " + new Date() + " ]\n");
+                System.out.println("\n[ Server are started on " + ip_address + ":64318 at " + new Date() + " ]\n");
                 for(;;){
                     Socket client = server.accept();
                     System.out.println("[ Client connection started at " + new Date() + " ]");
