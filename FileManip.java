@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 public class FileManip extends Application{
     @Override
     public void start(Stage stg) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(GetFXML.get_fxml("fxml/file_io.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/file_io.fxml"));
+        Parent root = loader.load();
 
         FileManip_Controller controller = loader.getController();
         controller.setStage(stg);
