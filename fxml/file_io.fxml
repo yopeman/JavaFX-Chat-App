@@ -33,7 +33,7 @@
       </Label>
       <ImageView fitHeight="37.0" fitWidth="74.0" layoutX="14.0" layoutY="16.0" onMouseClicked="#go_to_chat_page" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/back_img.png" />
+            <Image url="/image/back_img.png" />
          </image>
       </ImageView>
    </children>
