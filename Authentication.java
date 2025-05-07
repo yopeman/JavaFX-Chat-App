@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +9,8 @@ import javafx.stage.Stage;
 public class Authentication extends Application{
     @Override
     public void start(Stage stg) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/authentication.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(GetFXML.get_fxml("fxml/authentication.fxml"));
 
         Authentication_Controller controller = loader.getController();
         controller.setStage(stg);

@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 public class ChatPage extends Application{
     @Override
     public void start(Stage stg) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/chat_page.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(GetFXML.get_fxml("fxml/chat_page.fxml"));
 
         Chat_Controller controller = loader.getController();
         controller.setStage(stg);

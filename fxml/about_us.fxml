@@ -106,7 +106,7 @@
             </AnchorPane>
             <ImageView fitHeight="252.0" fitWidth="378.0" layoutX="13.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/about_img.jpg" />
+                  <Image url="/image/about_img.jpg" />
                </image>
             </ImageView>
          </children>
