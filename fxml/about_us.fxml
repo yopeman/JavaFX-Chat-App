@@ -50,7 +50,7 @@
                   <Font name="System Bold" size="48.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="399.0" layoutY="79.0" prefHeight="270.0" prefWidth="227.0" style="-fx-background-color: #263238; -fx-border-radius: 500px; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="79.0">
+            <AnchorPane layoutX="399.0" layoutY="68.0" prefHeight="235.0" prefWidth="227.0" style="-fx-background-color: #263238; -fx-border-radius: 500px; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="68.0">
                <children>
                   <Label layoutX="43.0" layoutY="7.0" text="Developer's" textFill="WHITE">
                      <font>
@@ -72,7 +72,7 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Label>
-                  <Label layoutX="8.0" layoutY="101.0" text="Yonas Abate" textFill="WHITE">
+                  <Label layoutX="7.0" layoutY="101.0" text="Yonas Abate" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -82,33 +82,43 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="8.0" layoutY="126.0" text="Yoseph Tilahun" textFill="WHITE">
+                  <Label layoutX="7.0" layoutY="126.0" text="Yoseph Tilahun" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="154.0" layoutY="126.0" text="1508427" textFill="WHITE">
+                  <Label layoutX="153.0" layoutY="126.0" text="1508427" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="34.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3rd year CS section A Students" textAlignment="CENTER" wrappingWidth="159.8739776611328">
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="34.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3rd year CS section A Students" textAlignment="CENTER" wrappingWidth="159.8739776611328">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Button layoutX="17.0" layoutY="219.0" mnemonicParsing="false" onAction="#btn_go_back" prefHeight="32.0" prefWidth="193.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Go Back" textFill="WHITE">
+                  <Label layoutX="7.0" layoutY="149.0" text="Leul Yenealem" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
-                  </Button>
+                  </Label>
+                  <Label layoutX="153.0" layoutY="149.0" text="1506823" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="252.0" fitWidth="378.0" layoutX="13.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="252.0" fitWidth="378.0" layoutX="13.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/about_img.jpg" />
+                  <Image url="@../image/about%20_img.jpg" />
                </image>
             </ImageView>
+            <Button layoutX="120.0" layoutY="325.0" mnemonicParsing="false" onAction="#btn_go_back" prefHeight="44.0" prefWidth="378.0" style="-fx-background-color: green; -fx-background-radius: 25px;" text="Go Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>

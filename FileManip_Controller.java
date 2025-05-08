@@ -59,6 +59,7 @@ public class FileManip_Controller {
 
                                 String file_list;
                                 file_list = data_inp.readUTF();
+                                // System.out.println(file_list);
                             
                                 String[] files = file_list.split(split_text_2);
 
@@ -72,8 +73,26 @@ public class FileManip_Controller {
                                     String file_id = file_data[2];
                                     String file_name = file_data[3];
                                     String upload_at = file_data[4];
+                                    
+                                    Button btn = new Button(file_id + ". " + file_name);
+                                    btn.setStyle("-fx-background-color: orange; -fx-background-radius: 15px; -fx-font-size: 14px;");
+                                    btn.setTextFill(Color.BLACK);
+                                    btn.setOnMouseClicked(event -> {
+                                    String file_info = "Sender Username: " + sender_uname + "\n" +
+                                                        "Sender Email: " + sender_email + "\n" +
+                                                        "File ID: " + file_id + "\n" +
+                                                        "File Name: " + file_name + "\n" +
+                                                        "Upload At: " + upload_at;
 
-                                    set_file_list(sender_email, sender_uname, file_id, file_name, upload_at);
+                                        if(JOptionPane.showConfirmDialog(null, file_info, "File Information", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+                                            file_download(file_id);
+                                        }
+                                    });
+                                    vb_file_list.getChildren().add(btn);
+                                    sp_for_file_list.setVvalue(1.0);
+                                    // System.out.println("\t #Added!");
+                                    
+                                    // System.out.println("File List Updated");
                                 }
                             }
                         } catch (IOException e) {
@@ -170,28 +189,6 @@ public class FileManip_Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        });
-    }
-
-    @FXML
-    protected void set_file_list(String sender_email, String sender_uname, String file_id, String file_name, String upload_at){
-        Platform.runLater(()->{
-            Button btn = new Button(file_id + ". " + file_name);
-            btn.setStyle("-fx-background-color: orange; -fx-background-radius: 15px; -fx-font-size: 14px;");
-            btn.setTextFill(Color.BLACK);
-            btn.setOnMouseClicked(event -> {
-            String file_info = "Sender Username: " + sender_uname + "\n" +
-                                "Sender Email: " + sender_email + "\n" +
-                                "File ID: " + file_id + "\n" +
-                                "File Name: " + file_name + "\n" +
-                                "Upload At: " + upload_at;
-
-                if(JOptionPane.showConfirmDialog(null, file_info, "File Information", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-                    file_download(file_id);
-                }
-            });
-            vb_file_list.getChildren().add(btn);
-            sp_for_file_list.setVvalue(1.0);
         });
     }
 }
