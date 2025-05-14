@@ -53,9 +53,13 @@ public class FileServer {
                 byte[] file_data = rs.getBytes("file_data");
                 DataOutputStream data_out = new DataOutputStream(socket.getOutputStream());
 
+                // System.out.println(" | " + file_id + " | " + file_name + " | " + file_data.length + " | ");
+
+                data_out.writeUTF("download-file");
                 data_out.writeUTF(file_name);
                 data_out.writeInt(file_data.length);
                 data_out.write(file_data);
+                data_out.flush();
                 return true;
             }
         } catch (IOException e) {

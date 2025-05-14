@@ -82,6 +82,11 @@ public class Authentication_Controller {
                     User.set_email(email);
                     User.set_pswd(pswd);
 
+                    data_inp.close();
+                    data_out.close();
+                    data_inp = null;
+                    data_out = null;
+
                     Platform.runLater(()->{
                         try{
                             stg.close();
@@ -129,6 +134,11 @@ public class Authentication_Controller {
                 if(data_inp.readBoolean()){
                     User.set_email(email);
                     User.set_pswd(pswd);
+
+                    data_inp.close();
+                    data_out.close();
+                    data_inp = null;
+                    data_out = null;
 
                     Platform.runLater(()->{
                         try{

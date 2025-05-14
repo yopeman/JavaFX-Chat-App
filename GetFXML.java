@@ -21,6 +21,6 @@ public class GetFXML{
     }
 
     public static void main(String[] args) {
-        System.out.println(GetFXML.class.getResource("/image/about_img.jpg"));
+        // System.out.println(GetFXML.class.getResource("/image/about_img.jpg"));
     }
 }

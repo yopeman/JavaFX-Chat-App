@@ -15,6 +15,15 @@ public class Database {
             String sql;
             PreparedStatement ps;
             Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
+
+            sql = "create database if not exists ChatDatabase";
+            ps = get_pStatement(sql);
+            
+            if(!db_exec(ps) &&  !error_msg.isEmpty()){
+                System.err.println("\n\n\n Error in creating ChatDatabase database! \n\n\n");
+            }
+
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ChatDatabase", "root", "");
 
             sql = "create table if not exists user ("+

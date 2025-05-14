@@ -164,6 +164,15 @@ public class Chat_Controller {
 
     @FXML
     void icon_btn_file(MouseEvent event) {
+        try {
+			data_inp.close();
+            data_out.close();
+            data_inp = null;
+            data_out = null;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
         Platform.runLater(()->{
             try{
                 stg.close();
@@ -176,6 +185,15 @@ public class Chat_Controller {
 
     @FXML
     void icon_btn_profile(MouseEvent event) {
+        try {
+			data_inp.close();
+            data_out.close();
+            data_inp = null;
+            data_out = null;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
         Platform.runLater(()->{
             try{
                 stg.close();

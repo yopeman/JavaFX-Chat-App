@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.sql.PreparedStatement;
 import java.util.Date;
 import java.util.HashMap;
@@ -56,6 +57,7 @@ public class Server extends Thread {
 
                 String action = data_inp.readUTF();
                 // System.out.println("\n\n\n \t Action => " + action + " \n\n\n");
+                System.out.println("[ Client request " + action + " at " + new Date() + " ]");
                 Database db = new Database();
 
                 if(action.equals("register")){
@@ -152,7 +154,8 @@ public class Server extends Thread {
                     }
                 }
             
-                else if(action.equals("file-tranfer")){
+                else if(action.equals("file-transfer")){
+                    // System.out.println(0);
                     try{
                         String email = data_inp.readUTF();
                         String sql = "select * from user where email=?";
@@ -169,17 +172,17 @@ public class Server extends Thread {
                             ChatUser chat_user = new ChatUser(user_id, uname, email, createdAt, updatedAt);
                             users.put(client, chat_user);
 
-                            String user_data = "";
-                            for(ChatUser user : users.values()){
-                                user_data += user.toString();
-                            }
+                            // String user_data = "";
+                            // for(ChatUser user : users.values()){
+                            //     user_data += user.toString();
+                            // }
 
-                            for(Socket s : users.keySet()){
-                                DataOutputStream temp_out = new DataOutputStream(s.getOutputStream());
-                                temp_out.writeUTF("update-user");
-                                temp_out.writeUTF(user_data);
-                                temp_out.flush();
-                            }
+                            // for(Socket s : users.keySet()){
+                            //     DataOutputStream temp_out = new DataOutputStream(s.getOutputStream());
+                            //     temp_out.writeUTF("update-user");
+                            //     temp_out.writeUTF(user_data);
+                            //     temp_out.flush();
+                            // }
 
                             sql = "select u.email, u.username, f.file_id, f.file_name, f.uploadAt from user u, file f where u.user_id = f.sender_id";
                             pStatement = db.get_pStatement(sql);
@@ -201,6 +204,7 @@ public class Server extends Thread {
                             data_out.writeUTF("update-file-lists");
                             data_out.writeUTF(file_list);
                             data_out.flush();
+                            // System.out.println(file_list);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -240,7 +244,9 @@ public class Server extends Thread {
                 else if(action.equals("download-file")){
                     String file_id = data_inp.readUTF();
                     if (FileServer.download_file(client, file_id)) {
-                        // System.out.println("File downloaded!");
+                        // System.out.println("File are downloaded!");
+                    } else {
+                        // System.out.println("File are not downloaded!");
                     }
                 }
             
@@ -301,13 +307,18 @@ public class Server extends Thread {
                 }
             } 
             
-            catch (EOFException e) {
-                System.out.println("[ Client connection terminated at " + new Date() + " ]");
-
+            catch (EOFException | SocketException e) {
                 try {
                     users.remove(client);
                     client.close();
+                    client = null;
                     
+                    for(Socket sc : users.keySet()){
+                        if (sc == null) {
+                            users.remove(sc);
+                        }
+                    }
+
                     String user_data = "";
                     for(ChatUser user : users.values()){
                         user_data += user.toString();
@@ -321,8 +332,9 @@ public class Server extends Thread {
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();
-                }       
+                }
 
+                System.out.println("[ Client connection terminated at " + new Date() + " ]");
                 break;
             }
 
