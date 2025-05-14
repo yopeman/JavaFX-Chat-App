@@ -67,8 +67,9 @@ public class Database {
                 System.err.println("\n\n\n Error in creating file database table! \n\n\n");
             }
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
     }
 
@@ -76,8 +77,9 @@ public class Database {
         try {
             return conn.prepareStatement(sql);
         } catch (SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
         return null;
     }
@@ -86,8 +88,9 @@ public class Database {
         try {
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
         return false;
     }
@@ -96,8 +99,9 @@ public class Database {
         try {
             return ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
         return null;
     }
@@ -113,8 +117,9 @@ public class Database {
             }
             return columns;
         } catch (SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
         return null;
     }
@@ -126,8 +131,9 @@ public class Database {
             while (rs.next()) { row_num++; }
             return row_num;
         } catch (SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
 
         return 0;
@@ -140,8 +146,9 @@ public class Database {
                 conn = null;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            error_msg = e.getMessage();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
+            error_msg = e.getMessage() + e.getLocalizedMessage();
         }
     }
 }

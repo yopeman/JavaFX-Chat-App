@@ -19,7 +19,8 @@ public class Network {
             return server;
 		} catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Server not found");
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
         return null;
     }

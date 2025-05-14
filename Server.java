@@ -40,7 +40,8 @@ public class Server extends Thread {
                     new Server(client).start();
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         }).start();
     }
@@ -128,7 +129,8 @@ public class Server extends Thread {
                             data_out.flush();
                         }
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        // e.printStackTrace();
+                        ErrorHandler.write_log_file(e);
                     }
                 }
             
@@ -207,7 +209,8 @@ public class Server extends Thread {
                             // System.out.println(file_list);
                         }
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        // e.printStackTrace();
+                        ErrorHandler.write_log_file(e);
                     }
                 }
 
@@ -331,7 +334,8 @@ public class Server extends Thread {
                         temp_out.flush();
                     }
                 } catch (IOException ex) {
-                    ex.printStackTrace();
+                    // ex.printStackTrace();
+                    ErrorHandler.write_log_file(ex);
                 }
 
                 System.out.println("[ Client connection terminated at " + new Date() + " ]");
@@ -339,11 +343,13 @@ public class Server extends Thread {
             }
 
             catch (IOException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             } 
             
             catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
+                ErrorHandler.write_log_file(e);
 			}
         }
     }

@@ -112,16 +112,19 @@ public class FileManip_Controller {
                                             JOptionPane.showMessageDialog(null, "Successfully Download: " + file_name, "Success", JOptionPane.INFORMATION_MESSAGE);
                                         }
                                     } catch (IOException e) {
-                                        e.printStackTrace();
+                                        // e.printStackTrace();
+                                        ErrorHandler.write_log_file(e);
                                     }
                                 });
                             } catch (Exception e) {
-                                e.printStackTrace();
+                                // e.printStackTrace();
+                                ErrorHandler.write_log_file(e);
                             }
                     }
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         }).start();
     }
@@ -158,7 +161,8 @@ public class FileManip_Controller {
                     set_file_list(User.get_email(), User.get_uname(), "?", file_name, upload_at);
                     JOptionPane.showMessageDialog(null, "Successfully Uploaded: " + file_name, "Success", JOptionPane.INFORMATION_MESSAGE);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    // e.printStackTrace();
+                    ErrorHandler.write_log_file(e);
                 }
             }).start();
         }
@@ -181,7 +185,8 @@ public class FileManip_Controller {
                 data_out.writeUTF(file_id);
                 data_out.flush();
             } catch (IOException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         }).start();
     }
@@ -195,7 +200,8 @@ public class FileManip_Controller {
             data_inp = null;
             data_out = null;
 		} catch (IOException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
 
         Platform.runLater(()->{
@@ -203,7 +209,8 @@ public class FileManip_Controller {
                 stg.close();
                 new ChatPage().start(new Stage());
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         });
     }

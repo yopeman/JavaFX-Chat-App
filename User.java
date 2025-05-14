@@ -42,7 +42,8 @@ public class User implements Serializable {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         }
         return false;
     }
@@ -68,7 +69,8 @@ public class User implements Serializable {
                 JOptionPane.showMessageDialog(null, "You entered wrong email or password", "Warming", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         }
         return false;
     }
@@ -97,7 +99,8 @@ public class User implements Serializable {
                 obj_inp.close();
             }
 		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
 
         return false;
@@ -111,7 +114,8 @@ public class User implements Serializable {
             obj_out.close();
             obj_out = null;
 		} catch (IOException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
     }
 

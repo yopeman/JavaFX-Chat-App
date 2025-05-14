@@ -9,7 +9,8 @@ public class GetFXML{
         try {
             return new String(Files.readAllBytes(Paths.get(file_path)));
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         }
         return null;
     }

@@ -113,7 +113,8 @@ public class Chat_Controller {
                     }
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
 
         }).start();
@@ -170,7 +171,8 @@ public class Chat_Controller {
             data_inp = null;
             data_out = null;
 		} catch (IOException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
 
         Platform.runLater(()->{
@@ -178,7 +180,8 @@ public class Chat_Controller {
                 stg.close();
                 new FileManip().start(new Stage());
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         });
     }
@@ -191,7 +194,8 @@ public class Chat_Controller {
             data_inp = null;
             data_out = null;
 		} catch (IOException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
 
         Platform.runLater(()->{
@@ -199,7 +203,8 @@ public class Chat_Controller {
                 stg.close();
                 new ProfilePage().start(new Stage());
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         });
     }
@@ -230,7 +235,8 @@ public class Chat_Controller {
                         tf_chat_input.setText("");
                     });
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    // e.printStackTrace();
+                    ErrorHandler.write_log_file(e);
                 }
             }
         }).start();

@@ -49,7 +49,8 @@ public class Validate {
             }
             return hexString.toString();
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         }
         return pswd;
     }

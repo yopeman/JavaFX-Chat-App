@@ -33,9 +33,11 @@ public class FileServer {
                 return true;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         } catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+            ErrorHandler.write_log_file(e);
 		}
         return false;
     }
@@ -63,9 +65,11 @@ public class FileServer {
                 return true;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         } catch (SQLException e) {  
-            e.printStackTrace();
+            // e.printStackTrace();
+            ErrorHandler.write_log_file(e);
         }
         return false;
     }

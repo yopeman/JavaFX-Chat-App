@@ -18,7 +18,8 @@ public class AboutUs_Controller {
                 stg.close();
                 new ProfilePage().start(new Stage());
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         });
     }

@@ -92,14 +92,16 @@ public class Authentication_Controller {
                             stg.close();
                             new ChatPage().start(new Stage());
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            // e.printStackTrace();
+                            ErrorHandler.write_log_file(e);
                         }
                     });
                 }
                 server.close();
 
             } catch (HeadlessException | IOException e1) {
-                e1.printStackTrace();
+                // e1.printStackTrace();
+                ErrorHandler.write_log_file(e1);
             }
         }).start();
     }
@@ -145,13 +147,15 @@ public class Authentication_Controller {
                             stg.close();
                             new ChatPage().start(new Stage());
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            // e.printStackTrace();
+                            ErrorHandler.write_log_file(e);
                         }
                     });
                 }
                 server.close();
             } catch (HeadlessException | IOException e1) {
-                e1.printStackTrace();
+                // e1.printStackTrace();
+                ErrorHandler.write_log_file(e1);
             }
         }).start();
     }

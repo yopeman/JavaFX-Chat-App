@@ -35,7 +35,8 @@ public class Profile_Controller {
                 stg.close();
                 new AboutUs().start(new Stage());
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         });
     }
@@ -74,7 +75,8 @@ public class Profile_Controller {
                                 stg.close();
                                 new Authentication().start(new Stage());
                             } catch (Exception e) {
-                                e.printStackTrace();
+                                // e.printStackTrace();
+                                ErrorHandler.write_log_file(e);
                             }
                         });
                     }
@@ -83,7 +85,8 @@ public class Profile_Controller {
                 server.close();
 
             } catch (Exception e1) {
-                e1.printStackTrace();
+                // e1.printStackTrace();
+                ErrorHandler.write_log_file(e1);
             }
         }).start();
     }
@@ -95,7 +98,8 @@ public class Profile_Controller {
                 stg.close();
                 new ChatPage().start(new Stage());
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                ErrorHandler.write_log_file(e);
             }
         });
     }
@@ -108,7 +112,8 @@ public class Profile_Controller {
                     stg.close();
                     new Authentication().start(new Stage());
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    // e.printStackTrace();
+                    ErrorHandler.write_log_file(e);
                 }
             });
         }
@@ -175,7 +180,8 @@ public class Profile_Controller {
                 server.close();
 
             } catch (Exception e1) {
-                e1.printStackTrace();
+                // e1.printStackTrace();
+                ErrorHandler.write_log_file(e1);
             }
         }).start();
     }
