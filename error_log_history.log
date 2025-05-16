@@ -1,6 +1,78 @@
-[Wed May 14 11:08:24 UTC 2025 | 2025-05-14T11:08:24.862651283] :	 null | null
+[Fri May 16 05:16:41 UTC 2025 | 2025-05-16T05:16:41.735390562] :	 java.net.SocketException: Socket closed
 
-[Wed May 14 11:50:21 UTC 2025 | 2025-05-14T11:50:21.746099737] :	 java.io.EOFException
+[Fri May 16 05:17:25 UTC 2025 | 2025-05-16T05:17:25.122926061] :	 java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'field list'
 
-[Wed May 14 11:51:17 UTC 2025 | 2025-05-14T11:51:17.094070224] :	 java.net.ConnectException: Connection refused
+[Fri May 16 05:20:22 UTC 2025 | 2025-05-16T05:20:22.213237688] :	 java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'field list'
+
+[Fri May 16 05:20:22 UTC 2025 | 2025-05-16T05:20:22.266088771] :	 java.io.EOFException
+
+[Fri May 16 05:20:31 UTC 2025 | 2025-05-16T05:20:31.164312210] :	 java.sql.SQLSyntaxErrorException: Unknown column 'user_id' in 'field list'
+
+[Fri May 16 05:21:43 UTC 2025 | 2025-05-16T05:21:43.528363255] :	 java.io.EOFException
+
+[Fri May 16 05:21:43 UTC 2025 | 2025-05-16T05:21:43.567751888] :	 java.io.EOFException
+
+[Fri May 16 05:22:27 UTC 2025 | 2025-05-16T05:22:27.809911073] :	 java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'yohanesdbb@gmail.com' for key 'email'
+
+[Fri May 16 05:22:30 UTC 2025 | 2025-05-16T05:22:30.988686612] :	 java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'yohanesdbb@gmail.com' for key 'email'
+
+[Fri May 16 05:22:42 UTC 2025 | 2025-05-16T05:22:42.011240661] :	 java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'yohanesdbb@gmail.com' for key 'email'
+
+[Fri May 16 06:12:57 UTC 2025 | 2025-05-16T06:12:57.619396184] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:14:58 UTC 2025 | 2025-05-16T06:14:58.968826410] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:14:59 UTC 2025 | 2025-05-16T06:14:59.760842732] :	 java.net.SocketException: Broken pipe
+
+[Fri May 16 06:14:59 UTC 2025 | 2025-05-16T06:14:59.798163834] :	 com.mysql.cj.jdbc.exceptions.PacketTooBigException: Packet for query is too large (3,951,685 > 1,048,576). You can change this value on the server by setting the 'max_allowed_packet' variable.
+
+[Fri May 16 06:15:02 UTC 2025 | 2025-05-16T06:15:02.040817133] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:15:06 UTC 2025 | 2025-05-16T06:15:06.283650041] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:15:08 UTC 2025 | 2025-05-16T06:15:08.982637427] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:16:26 UTC 2025 | 2025-05-16T06:16:26.429911549] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:16:29 UTC 2025 | 2025-05-16T06:16:29.503835516] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:18:46 UTC 2025 | 2025-05-16T06:18:46.159822148] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:18:49 UTC 2025 | 2025-05-16T06:18:49.204177108] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:19:03 UTC 2025 | 2025-05-16T06:19:03.444904090] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:19:11 UTC 2025 | 2025-05-16T06:19:11.786841925] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:19:21 UTC 2025 | 2025-05-16T06:19:21.603432964] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:19:34 UTC 2025 | 2025-05-16T06:19:34.446370900] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:20:38 UTC 2025 | 2025-05-16T06:20:38.914067568] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:28:02 UTC 2025 | 2025-05-16T06:28:02.552627617] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:34:58 UTC 2025 | 2025-05-16T06:34:58.800994992] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:42:16 UTC 2025 | 2025-05-16T06:42:16.424629834] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:43:27 UTC 2025 | 2025-05-16T06:43:27.344903169] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:43:41 UTC 2025 | 2025-05-16T06:43:41.585659886] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:43:52 UTC 2025 | 2025-05-16T06:43:52.665686720] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:43:58 UTC 2025 | 2025-05-16T06:43:58.527530735] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:44:00 UTC 2025 | 2025-05-16T06:44:00.739523269] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:44:25 UTC 2025 | 2025-05-16T06:44:25.003286016] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:44:53 UTC 2025 | 2025-05-16T06:44:53.770561266] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 06:44:55 UTC 2025 | 2025-05-16T06:44:55.925210524] :	 java.net.SocketException: Socket closed
+
+[Fri May 16 07:04:51 UTC 2025 | 2025-05-16T07:04:51.852655654] :	 java.net.ConnectException: Connection refused
+
+[Fri May 16 07:21:53 UTC 2025 | 2025-05-16T07:21:53.150259708] :	 java.net.ConnectException: Connection refused
 

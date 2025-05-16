@@ -267,7 +267,7 @@ public class Server extends Thread {
                     String email = data_inp.readUTF();
                     String uname = data_inp.readUTF();
                     
-                    String sql = "update user set uname=? where email=?";
+                    String sql = "update user set username=? where email=?";
                     PreparedStatement pStatement = db.get_pStatement(sql);
                     pStatement.setString(1, uname);
                     pStatement.setString(2, email);
@@ -280,7 +280,7 @@ public class Server extends Thread {
                     String old_email = data_inp.readUTF();
                     String new_email = data_inp.readUTF();
 
-                    String sql = "select user_id where email=?";
+                    String sql = "select user_id from user where email=?";
                     PreparedStatement pStatement = db.get_pStatement(sql);
                     pStatement.setString(1, old_email);
                     ResultSet rs = db.db_query(pStatement);

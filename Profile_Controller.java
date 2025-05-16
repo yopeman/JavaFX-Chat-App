@@ -147,6 +147,9 @@ public class Profile_Controller {
                     if(data_inp.readBoolean()){
                         JOptionPane.showMessageDialog(null, "Successfully update username!");
                         User.set_uname(uname);
+                        tf_uname.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Sorry username are not updated!");
                     }
                 }
 
@@ -160,6 +163,9 @@ public class Profile_Controller {
                     if(data_inp.readBoolean()){
                         JOptionPane.showMessageDialog(null, "Successfully update email!");
                         User.set_email(email);
+                        tf_email.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Sorry email are not updated!");
                     }
                 }
                 
@@ -172,8 +178,11 @@ public class Profile_Controller {
                     data_out.flush();
 
                     if(data_inp.readBoolean()){
-                        JOptionPane.showMessageDialog(null, "Successfully update pswd!");
+                        JOptionPane.showMessageDialog(null, "Successfully update password!");
                         User.set_pswd(pswd);
+                        tf_pswd.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Sorry password are not updated!");
                     }
                 }
                 
