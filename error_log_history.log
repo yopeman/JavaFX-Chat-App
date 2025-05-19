@@ -76,3 +76,17 @@
 
 [Fri May 16 07:21:53 UTC 2025 | 2025-05-16T07:21:53.150259708] :	 java.net.ConnectException: Connection refused
 
+[Fri May 16 08:12:03 UTC 2025 | 2025-05-16T08:12:03.695782236] :	 java.net.ConnectException: Connection refused
+
+[Fri May 16 08:12:38 UTC 2025 | 2025-05-16T08:12:38.636906098] :	 java.net.BindException: Address already in use
+
+[Fri May 16 08:13:03 UTC 2025 | 2025-05-16T08:13:03.795618739] :	 java.net.BindException: Address already in use
+
+[Mon May 19 18:51:47 UTC 2025 | 2025-05-19T18:51:47.644229542] :	 java.net.SocketException: Socket closed
+
+[Mon May 19 18:52:42 UTC 2025 | 2025-05-19T18:52:42.667626615] :	 java.net.SocketException: Socket closed
+
+[Mon May 19 18:53:05 UTC 2025 | 2025-05-19T18:53:05.424267231] :	 java.net.SocketException: Socket closed
+
+[Mon May 19 18:55:17 UTC 2025 | 2025-05-19T18:55:17.208995588] :	 java.net.SocketException: Socket closed
+
